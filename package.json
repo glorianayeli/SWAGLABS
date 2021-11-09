@@ -1,0 +1,19 @@
+{
+  "name": "prueba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --no-timeouts tests/*.js --parallel --reporter mochawesome --require mochawesome/register --reportDir=D:\\Docs\\UNIVERSIDAD\\Cursos\\automationtesting\\prueba\\mochawesome-report --reportFilename=testResults"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "chromedriver": "^95.0.0",
+    "geckodriver": "^2.0.4",
+    "mocha": "^9.1.3",
+    "mochawesome": "^7.0.1",
+    "selenium-webdriver": "^4.0.0"
+  }
+}

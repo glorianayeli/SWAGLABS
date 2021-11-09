@@ -1,0 +1,292 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-09T04:34:39.191Z",
+    "end": "2021-11-09T04:35:19.504Z",
+    "duration": 40313,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cb946132-8974-4bbb-8342-bf3d6e209c96",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7b841339-8eb6-4647-a818-cba26afa157a",
+          "title": "inventory logout function",
+          "fullFile": "D:\\Docs\\UNIVERSIDAD\\Cursos\\automation testing\\prueba\\tests\\inventoryTests.js",
+          "file": "\\tests\\inventoryTests.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"inventory logout function\"",
+              "fullTitle": "inventory logout function \"before each\" hook in \"inventory logout function\"",
+              "timedOut": null,
+              "duration": 15243,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser(\"chrome\").build();\nhomePage = new inventoryPage(driver);\nlogin = new loginPage(driver);\nawait login.load();",
+              "err": {},
+              "uuid": "d393e93a-576b-44f3-a28e-dbb7589d4ea9",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"inventory logout function\"",
+              "fullTitle": "inventory logout function \"after each\" hook in \"inventory logout function\"",
+              "timedOut": null,
+              "duration": 920,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "fd760f4d-7c4f-4183-8f70-8a544b2d71ff",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "cheking if logout function is routing to homepage",
+              "fullTitle": "inventory logout function cheking if logout function is routing to homepage",
+              "timedOut": null,
+              "duration": 5721,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await login.authenticate(\"standard_user\", \"secret_sauce\");\nconst urlAfterLogout = await homePage.logout();\nurlAfterLogout.should.equal(\"https://www.saucedemo.com/\");",
+              "err": {},
+              "uuid": "b56bda68-9eed-4b56-97a8-697fd8b7ad98",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b56bda68-9eed-4b56-97a8-697fd8b7ad98"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5721,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": null
+        },
+        {
+          "uuid": "33a373d1-782c-4bd1-b553-a1fa3df6d1c2",
+          "title": "login function",
+          "fullFile": "D:\\Docs\\UNIVERSIDAD\\Cursos\\automation testing\\prueba\\tests\\login.spec.js",
+          "file": "\\tests\\login.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"login function\"",
+              "fullTitle": "login function \"before each\" hook in \"login function\"",
+              "timedOut": null,
+              "duration": 6872,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser(\"chrome\").build();\nlogin = new LoginPage(driver);\nawait login.load();",
+              "err": {},
+              "uuid": "5794de07-e866-4c11-965e-4159528e2b88",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"login function\"",
+              "fullTitle": "login function \"after each\" hook in \"login function\"",
+              "timedOut": null,
+              "duration": 616,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": null,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "13e94b38-6b68-4930-a3d3-47004af7330d",
+              "parentUUID": null,
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "with valid credentials",
+              "fullTitle": "login function with valid credentials",
+              "timedOut": null,
+              "duration": 4355,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await login.authenticate(\"standard_user\", \"secret_sauce\");\nconst resultUrl = await login.successRouting();\nresultUrl.should.equal(\"https://www.saucedemo.com/inventory.html\");",
+              "err": {},
+              "uuid": "0d34c059-f5e9-4e25-8e7c-4627d33dfdbd",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "with invalid credentials",
+              "fullTitle": "login function with invalid credentials",
+              "timedOut": null,
+              "duration": 1560,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await login.authenticate(\"stan_user\", \"secret_sauce\");\nassert(await login.failedLogin(), \"Error not displayed\");",
+              "err": {},
+              "uuid": "54473c83-36ac-4248-9b1e-c295c7945b7c",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0d34c059-f5e9-4e25-8e7c-4627d33dfdbd",
+            "54473c83-36ac-4248-9b1e-c295c7945b7c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5915,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": null
+        },
+        {
+          "uuid": "99c43121-ebef-4094-9470-3db0f3a0ef27",
+          "title": "adding a second todoElement",
+          "fullFile": "D:\\Docs\\UNIVERSIDAD\\Cursos\\automation testing\\prueba\\tests\\second.spec.js",
+          "file": "\\tests\\second.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "successfully added",
+              "fullTitle": "adding a second todoElement successfully added",
+              "timedOut": null,
+              "duration": 21642,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let searchString = \"Automation testing with Selenium and JavaScript\";\n//To wait for browser to build and launch properly\nlet driver = await new Builder().forBrowser(\"chrome\").build();\n//To fetch http://google.com from the browser with our code.\nawait driver.get(\"https://lambdatest.github.io/sample-todo-app/\");\n//To send a search query by passing the value in searchString.\nawait driver\n  .findElement(By.id(\"sampletodotext\"))\n  .sendKeys(searchString, Key.RETURN);\ndriver.sleep(4000);\n//Verify the page title and print it\nlet title = await driver.getTitle();\nconsole.log(\"Title is:\", title);\n//assert\nlet todoText = await driver.findElement(By.xpath(\"//li[last()]\")).getText();\n//assert using chai should\ntodoText.should.equal(searchString);\n//It is always a safe practice to quit the browser after execution\nawait driver.quit();",
+              "err": {},
+              "uuid": "df067dc6-4fac-4b38-8dd1-5d90cdb33ecd",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Failed added",
+              "fullTitle": "adding a second todoElement Failed added",
+              "timedOut": null,
+              "duration": 9411,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let searchString = \"Automation testing with Selenium and JavaScript\";\n//To wait for browser to build and launch properly\nlet driver = await new Builder().forBrowser(\"chrome\").build();\n//To fetch http://google.com from the browser with our code.\nawait driver.get(\"https://lambdatest.github.io/sample-todo-app/\");\n//To send a search query by passing the value in searchString.\nawait driver\n  .findElement(By.id(\"sampletodotext\"))\n  .sendKeys(searchString, Key.RETURN);\ndriver.sleep(4000);\n//Verify the page title and print it\nlet title = await driver.getTitle();\nconsole.log(\"Title is:\", title);\n//assert\nlet todoText = await driver.findElement(By.xpath(\"//li[last()]\")).getText();\n//assert using chai should\ntodoText.should.equal(searchString);\n//It is always a safe practice to quit the browser after execution\nawait driver.quit();",
+              "err": {},
+              "uuid": "c833d656-8091-4798-9902-ddd15df5ab31",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "df067dc6-4fac-4b38-8dd1-5d90cdb33ecd",
+            "c833d656-8091-4798-9902-ddd15df5ab31"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 31053,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": null
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.1.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.0.1"
+    }
+  }
+}
