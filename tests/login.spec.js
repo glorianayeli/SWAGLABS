@@ -17,11 +17,13 @@ describe("login function", async function () {
   afterEach(async function () {
     await driver.quit();
   });
+  //#A-Login with a valid user
   it("with valid credentials", async function () {
     await login.authenticate("standard_user", "secret_sauce");
     const resultUrl = await login.successRouting();
     resultUrl.should.equal("https://www.saucedemo.com/inventory.html");
   });
+  //#B-Login with an invalid user
   it("with invalid credentials", async function () {
     await login.authenticate("stan_user", "secret_sauce");
     assert(await login.failedLogin(), "Error not displayed");
