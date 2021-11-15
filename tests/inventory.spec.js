@@ -32,8 +32,4 @@ describe("inventory logout function", async function () {
     });
     prices.should.equal(Sortprices);
   });
-  //#F-Adding a specific item to the shopping cart
-  it("Adding Sauce Labs Onesie to the shopping cart", async function(){
-    
-  });
 });

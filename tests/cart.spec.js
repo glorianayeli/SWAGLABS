@@ -20,18 +20,34 @@ describe("Cart functions", async function () {
     await login.authenticate("standard_user", "secret_sauce");
   });
   afterEach(async function () {
-    await driver.quit();
+
   });
+  //#E Add multiple items to the shopping cart
   it("adding multiple items to the cart page and verifiying that have been correctly adding", async function () {
     let correctlyAdded = true;
     let itemsAdded = await homePage.addItemsToTheCard();
     await homePage.clickShoppingCart();
     let itemsCart = await cart.getItemsCard();
+    console.log(itemsCart)
+    console.log(itemsAdded)
     itemsAdded.forEach((elem) => {
-      if (itemsCart.indexOf(elem.id) != -1) {
+      if (itemsCart.indexOf(elem.name) === -1) {
         correctlyAdded = false;
       }
     });
     assert(correctlyAdded, "items have not correctly added");
+  });
+  //#F-Adding a specific item to the shopping cart
+  it("Adding Sauce Labs Onesie to the shopping cart", async function(){
+    await homePage.addSauceLabsOnesieItem();
+    await homePage.clickShoppingCart();
+    const items = await cart.getItemsCard();
+    console.log(`xd ${items} valor ${items.indexOf("Sauce Labs Onesie")}`);
+    let itemIsAble = true;
+    if (items.indexOf("Sauce Labs Onesie") === -1) {
+      itemIsAble = false;
+    }
+    console.log(itemIsAble);
+    assert(itemIsAble, "the item wasn't added correctly");
   });
 });

@@ -5,9 +5,9 @@ const PRODUCT_SORT = { css: ".product_sort_container" };
 const OPTION_LOW_TO_HIGH = { css: "option[value=lohi]" };
 const INVENTORY_ITEM_PRICE = { css: "div.inventory_item_price" };
 const ITEMS = [
-  { id: "add-to-cart-sauce-labs-backpack" },
-  { id: "add-to-cart-sauce-labs-bike-light" },
-  { id: "add-to-cart-sauce-labs-bolt-t-shirt" },
+  { id: "add-to-cart-sauce-labs-backpack", name:"Sauce Labs Backpack"},
+  { id: "add-to-cart-sauce-labs-bike-light", name:"Sauce Labs Bike Light"},
+  { id: "add-to-cart-sauce-labs-bolt-t-shirt", name:"Sauce Labs Bolt T-Shirt"}
 ];
 const SHOPPING_CART_LINK = { css: ".shopping_cart_link" };
 const SAUCE_LABS_ONESIE = {id: "add-to-cart-sauce-labs-onesie"};
@@ -36,16 +36,19 @@ class inventoryClass {
     return prices;
   }
   async addItemsToTheCard() {
-    ITEMS.forEach(async (elem) => {
-      await this.driver.findElement(elem).click();
-    });
+    const items = Promise.all(
+      ITEMS.map(async (ele) => {
+        await this.driver.findElement(ele).click();
+
+      })
+    )
     return ITEMS;
   }
   async clickShoppingCart() {
     await this.driver.findElement(SHOPPING_CART_LINK).click();
   }
   async addSauceLabsOnesieItem(){
-    await this.driver.findElement( SAUCE_LABS_ONESIE).click();
+    await this.driver.findElement(SAUCE_LABS_ONESIE).click();
   }
 }
 
