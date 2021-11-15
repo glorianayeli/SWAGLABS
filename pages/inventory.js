@@ -10,6 +10,7 @@ const ITEMS = [
   { id: "add-to-cart-sauce-labs-bolt-t-shirt" },
 ];
 const SHOPPING_CART_LINK = { css: ".shopping_cart_link" };
+const SAUCE_LABS_ONESIE = {id: "add-to-cart-sauce-labs-onesie"};
 
 class inventoryClass {
   constructor(driver) {
@@ -17,7 +18,9 @@ class inventoryClass {
   }
   async logout() {
     await this.driver.findElement(BUTTON_MENU).click();
+    await this.driver.manage().setTimeouts( { implicit: 5000 } );
     await this.driver.findElement(LOGOUT_LINK).click();
+    await this.driver.manage().setTimeouts( { implicit: 5000 } );
     return await this.driver.getCurrentUrl();
   }
   async lowToHigh() {
@@ -40,6 +43,9 @@ class inventoryClass {
   }
   async clickShoppingCart() {
     await this.driver.findElement(SHOPPING_CART_LINK).click();
+  }
+  async addSauceLabsOnesieItem(){
+    await this.driver.findElement( SAUCE_LABS_ONESIE).click();
   }
 }
 

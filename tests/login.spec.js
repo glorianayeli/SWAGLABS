@@ -4,13 +4,14 @@ const chai = require("chai"),
   assert = chai.assert,
   expect = chai.expect;
 const LoginPage = require("../pages/login");
-require("chromedriver");
+let edge = require("selenium-webdriver/edge");
 
 describe("login function", async function () {
   let login;
   let driver;
   beforeEach(async function () {
-    driver = await new Builder().forBrowser("chrome").build();
+    let service = new edge.ServiceBuilder("C:\\Users\\glori\\Documents\\cursos\\automation_testing\\SWAGLABS\\driver\\edgedriver_win64\\msedgedriver.exe");
+    driver = await new Builder().setEdgeService(service).forBrowser('MicrosoftEdge').build();
     login = new LoginPage(driver);
     await login.load();
   });

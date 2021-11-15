@@ -4,14 +4,15 @@ const chai = require("chai"),
 const inventoryPage = require("../pages/inventory");
 const loginPage = require("../pages/login");
 const cartPage = require("../pages/cart");
-require("chromedriver");
+let edge = require("selenium-webdriver/edge");
 describe("Cart functions", async function () {
   let homePage;
   let driver;
   let cart;
   let login;
   beforeEach(async function () {
-    driver = await new Builder().forBrowser("chrome").build();
+    let service = new edge.ServiceBuilder("C:\\Users\\glori\\Documents\\cursos\\automation_testing\\SWAGLABS\\driver\\edgedriver_win64\\msedgedriver.exe");
+    driver = await new Builder().setEdgeService(service).forBrowser('MicrosoftEdge').build();
     homePage = new inventoryPage(driver);
     login = new loginPage(driver);
     cart = new cartPage(driver);

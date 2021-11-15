@@ -1,7 +1,7 @@
 const { Builder } = require("selenium-webdriver");
 const chai = require("chai"),
   should = chai.should();
-require("chromedriver");
+let edge = require("selenium-webdriver/edge");
 const inventoryPage = require("../pages/inventory");
 const loginPage = require("../pages/login");
 
@@ -9,7 +9,8 @@ describe("inventory logout function", async function () {
   let homePage;
   let driver;
   beforeEach(async function () {
-    driver = await new Builder().forBrowser("chrome").build();
+    let service = new edge.ServiceBuilder("C:\\Users\\glori\\Documents\\cursos\\automation_testing\\SWAGLABS\\driver\\edgedriver_win64\\msedgedriver.exe");
+    driver = await new Builder().setEdgeService(service).forBrowser('MicrosoftEdge').build();
     homePage = new inventoryPage(driver);
     login = new loginPage(driver);
     await login.load();
@@ -30,5 +31,9 @@ describe("inventory logout function", async function () {
       return a - b;
     });
     prices.should.equal(Sortprices);
+  });
+  //#F-Adding a specific item to the shopping cart
+  it("Adding Sauce Labs Onesie to the shopping cart", async function(){
+    
   });
 });
