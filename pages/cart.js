@@ -1,6 +1,5 @@
-const { promise } = require("selenium-webdriver");
-
 const INVENTORY_ITEM_NAME = { css: ".inventory_item_name" };
+const CHECKOUT = { id: "checkout"}
 
 class cartPage {
   constructor(driver) {
@@ -16,6 +15,10 @@ class cartPage {
       })
     );
     return items;
+  }
+
+  async clickingCheckoutButton(){
+    await this.driver.findElement(CHECKOUT).click();
   }
 }
 
