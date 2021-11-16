@@ -1,4 +1,4 @@
-const FRISTNAME = {id: "frist-name"};
+const FRISTNAME = {id: "first-name"};
 const LASTNAME = {id: "last-name"};
 const POSTALCODE = {id: "postal-code"};
 const CONTINUE = {id: "continue"};

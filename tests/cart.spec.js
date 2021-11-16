@@ -20,7 +20,7 @@ describe("Cart functions", async function () {
     await login.authenticate("standard_user", "secret_sauce");
   });
   afterEach(async function () {
-
+    driver.quit();
   });
   //#E Add multiple items to the shopping cart
   it("adding multiple items to the cart page and verifiying that have been correctly adding", async function () {
@@ -42,12 +42,10 @@ describe("Cart functions", async function () {
     await homePage.addSauceLabsOnesieItem();
     await homePage.clickShoppingCart();
     const items = await cart.getItemsCard();
-    console.log(`xd ${items} valor ${items.indexOf("Sauce Labs Onesie")}`);
     let itemIsAble = true;
     if (items.indexOf("Sauce Labs Onesie") === -1) {
       itemIsAble = false;
     }
-    console.log(itemIsAble);
     assert(itemIsAble, "the item wasn't added correctly");
   });
 });

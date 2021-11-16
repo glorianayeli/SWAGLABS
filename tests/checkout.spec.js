@@ -8,7 +8,7 @@ const cartPage = require("../pages/cart");
 const checkout = require("../pages/checkout");
 let edge = require("selenium-webdriver/edge");
 
-describe("compliting a purchse in checkout flow", async function(){
+describe("completing a purchse in checkout flow", async function(){
     let driver, homePage, login, cart, checkoutPage; 
     beforeEach(async function(){
         let service = new edge.ServiceBuilder("C:\\Users\\glori\\Documents\\cursos\\automation_testing\\SWAGLABS\\driver\\edgedriver_win64\\msedgedriver.exe");
@@ -23,8 +23,10 @@ describe("compliting a purchse in checkout flow", async function(){
     afterEach(async function(){
         driver.quit();
     });
+    //#F Complete a purchase
     it("checkout flow", async function(){
         await homePage.addSauceLabsOnesieItem();
+        await homePage.clickShoppingCart();
         await cart.clickingCheckoutButton();
         await checkoutPage.formCheckout();
         let orderConfirmationPage = await checkoutPage.checkoutOverview();
