@@ -1,9 +1,10 @@
 const FRISTNAME = {id: "frist-name"};
 const LASTNAME = {id: "last-name"};
 const POSTALCODE = {id: "postal-code"};
-const CONTINUE = {id: "continue"}
+const CONTINUE = {id: "continue"};
+const FINISH = {id:"finish"};
 
-class checkoutStepOne {
+class checkout {
     constructor(driver){
         this.driver = driver;
     }
@@ -13,6 +14,10 @@ class checkoutStepOne {
         await this.driver.findElement(POSTALCODE).sendKeys('28219');
         await this.driver.findElement(CONTINUE).click(); 
     }
+    async checkoutOverview(){
+        await this.driver.findElement(FINISH).click();
+        return await this.driver.getCurrentUrl();
+    }
 }
 
-module.exports = checkoutStepOne;
+module.exports = checkout;
