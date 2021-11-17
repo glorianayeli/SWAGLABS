@@ -6,10 +6,7 @@ const loginPage = require("../pages/login");
 const cartPage = require("../pages/cart");
 let edge = require("selenium-webdriver/edge");
 describe("Cart functions", async function () {
-  let homePage;
-  let driver;
-  let cart;
-  let login;
+  let homePage,driver,car,login;
   beforeEach(async function () {
     let service = new edge.ServiceBuilder("C:\\Users\\glori\\Documents\\cursos\\automation_testing\\SWAGLABS\\driver\\edgedriver_win64\\msedgedriver.exe");
     driver = await new Builder().setEdgeService(service).forBrowser('MicrosoftEdge').build();
@@ -28,8 +25,6 @@ describe("Cart functions", async function () {
     let itemsAdded = await homePage.addItemsToTheCard();
     await homePage.clickShoppingCart();
     let itemsCart = await cart.getItemsCard();
-    console.log(itemsCart)
-    console.log(itemsAdded)
     itemsAdded.forEach((elem) => {
       if (itemsCart.indexOf(elem.name) === -1) {
         correctlyAdded = false;
